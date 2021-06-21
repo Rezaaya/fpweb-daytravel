@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://covid-193.p.rapidapi.com/statistics",
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "covid-193.p.rapidapi.com",
+                "x-rapidapi-key": "f7ce86e5aemshea66c749ce176fdp1f70a5jsnb9fb0b96308e"
+            }
+        }
+
+        $.ajax(settings).done(function(getdata) {
+            console.log(getdata);
+            var negara = getdata.response[36].country;
+            var kontingen = getdata.response[36].continent;
+            var day = getdata.response[36].day;
+
+            var populasi = getdata.response[36].cases["1M_pop"];
+            var new_positif = getdata.response[36].cases.new;
+            var recovery = getdata.response[36].cases.recovered;
+            var tot_positif = getdata.response[36].cases.total;
+
+            var populasi_mati = getdata.response[36].deaths["1M_pop"];
+            var new_deaths = getdata.response[36].deaths.new;
+            var tot_deaths = getdata.response[36].deaths.total;
+            var populasi_test = getdata.response[36].tests["1M_pop"];
+            var tot_test = getdata.response[36].tests.total;
+
+            document.getElementById('negara').innerHTML = negara;
+            document.getElementById('kontingen').innerHTML = kontingen;
+            document.getElementById('tanggal-hari-ini').innerHTML = day;
+
+            document.getElementById('1m_populasi').innerHTML = populasi;
+            document.getElementById('positif-baru').innerHTML = new_positif;
+            document.getElementById('recovered').innerHTML = recovery;
+            document.getElementById('total-positif').innerHTML = tot_positif;
+            document.getElementById('1m_kematian').innerHTML = populasi_mati;
+            document.getElementById('meninggal-baru').innerHTML = new_deaths;
+            document.getElementById('total-kematian').innerHTML = tot_deaths;
+            document.getElementById('test').innerHTML = populasi_test;
+            document.getElementById('total-test').innerHTML = tot_test;
+
+        });
+    </script>
+</body>
+
+</html>

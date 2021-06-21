@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="izitoast/dist/css/iziToast.min.css">
+    <script src="izitoast/dist/js/iziToast.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+
+    <script src="https://kit.fontawesome.com/2fa4d370ad.js" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/89b8dcd205.js"></script>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <title>Harga - Day Travel Id</title>
+</head>
+
+
+
+<body>
+
+
+    <!-- awal navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="img/png/logo.png" height="40" alt="daytravel"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="daytarvel.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="destinasi.html">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item btn btn-primary tombol" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- akhir navbar -->
+
+    <section id="judul-blog-tunggal">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" height="100%" src="img/header1.png" alt="First slide">
+                    <div class="carousel-container">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h1 class="animate__animated animate__zoomIn animate__delay-2s "> Enjoy <span> Your Trip </span> <br> With us.</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="judul-blog" class="judul-blog bg-primary">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <ol>
+                        <li><a href="daytarvel.html">Home</a></li>
+                        <li>Pricing</li>
+                    </ol>
+                    <h2 class="mt-1 text-center">Pricing Day Travel</h2>
+                    <ol>
+                        <li><a href="harga.html">About</a></li>
+                        <li>Pricing</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- toast-->
+    <div class="toast" id="myToast" style="position: absolute; top: 0; right: 0;">
+        <div class="toast-header">
+            <strong class="mr-auto"><i class="fa fa-grav"></i> Yeayy, Booking Berhasil!!</strong>
+            <small>Just Now</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">
+                   <span aria-hidden="true">&times;</span>
+               </button>
+        </div>
+        <div class="toast-body">
+            <div>Nikmati Benefit yang tersedia dari Kami diperjalanan Anda.. <a href="harga.html">Kembali ke Harga Paket</a></div>
+        </div>
+    </div>
+
+    <!-- awal harga-->
+    <section class="special-offer">
+        <div class="container">
+            <h2 class="text-center txt-gambar-h">Daftar Paket </h2>
+            <p class="text-center txt-gambar-p offer">Cek segera paket impianmu</p>
+            <section class="harga">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="blok_kolom fitur">
+                                <h3>Paket Reguler </h3>
+                                <h4><sup>Rp.</sup>2.000.000<span> / 4 Hari</span></h4>
+                                <ul>
+                                    <li>Pantai Sanur + Baju adat 1 Set Gratis</li>
+                                    <li><del>Pulau Dewata</del></li>
+                                    <li><del>Pura Besakih</del></li>
+                                    <li><del>Tanah lot</del></li>
+                                </ul>
+                                <div class="btn-wrap">
+                                    <button class="btn btn-primary show-toast">Booking Sekarang</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
+                            <div class="blok_kolom fitur">
+                                <h3>Paket Semi Reguler</h3>
+                                <h4><sup>Rp.</sup>3.000.000<span> / 5 Hari</span></h4>
+                                <ul>
+                                    <li><del>Pantai Sanur</del></li>
+                                    <li><del>Pulau Dewata</del></li>
+                                    <li><del>Pura Besakih</del></li>
+                                    <li>Tanah lot + Anugerah Alam</li>
+                                </ul>
+                                <div class="btn-wrap">
+                                    <button class="btn btn-primary show-toast">Booking Sekarang</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+                            <div class="blok_kolom fitur">
+                                <h3>Paket Semi Exclusive</h3>
+                                <h4><sup>Rp.</sup>7.000.000<span> / 8 Hari</span></h4>
+                                <ul>
+                                    <li>Pantai Sanur + Miniatur</li>
+                                    <li>Pulau Dewata + Snack + Miniatur</li>
+                                    <li>Pura Besakih + + Baju Adat 1 set Gratis</li>
+                                    <li><del>Tanah lot</del></li>
+                                </ul>
+                                <div class="btn-wrap">
+                                    <button class="btn btn-primary show-toast">Booking Sekarang</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mt-4 mt-lg-0">
+                            <div class="blok_kolom fitur">
+                                <span class="Lengkap">Lengkap</span>
+                                <h3>Paket Exclusive</h3>
+                                <h4><sup>Rp.</sup>11.000.000<span> / 15 Hari</span></h4>
+                                <ul>
+                                    <li>Pantai Sanur + Miniatur</li>
+                                    <li>Pulau Dewata + Tas Gratis</li>
+                                    <li>Pura Besakih + Baju Adat 1 set Gratis</li>
+                                    <li>Tanah lot + Anugrah Alam</li>
+                                </ul>
+                                <div class="btn-wrap">
+                                    <button class="btn btn-primary ">Booking Sekarang</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    <!-- ++++ Akhir Dari harga -->
+
+    <!-- Booking Pemesanan -->
+    <section id="harga-pesan" class="bg-light">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="section-judul-harga">
+              <h2 class="text-primary"> <strong>Pemesanan</strong></h2>
+            </div>
+          </div>  
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <form>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="validationDefault01">Nama Depan</label>
+                  <input id="namadepan" type="text" class="form-control">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="validationDefault02">Nama Belakang</label>
+                  <input id="namabelakang" type="text" class="form-control">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                  <label for="validationDefault03">Kota Asal</label>
+                  <input id="kotaasal" type="text" class="form-control">
+                </div>
+                <div class="col-md-5 mb-3">
+                  <label for="validationDefault04">Provinsi</label>
+                  <input id="provinsi" type="text" class="form-control">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-6 mb-3">
+                  <label for="validationDefault05">Alamat</label>
+                  <input id="alamat" type="text" class="form-control">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                  <label for="validationDefault06">Pilihan Paket</label>
+                  <input id="pilihanpaket" type="text" class="form-control">
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="validationDefault07">Harga</label>
+                  <input id="hargapaket" type="text" class="form-control">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck2">
+                  <label class="form-check-label" for="invalidCheck2">
+                    Bersedia berwisata bersama Kami.
+                  </label>
+                </div>
+              </div>
+              <button id="pesan" class="btn btn-primary show-toast" type="submit">Pesan..</button>
+              <button id="batal" class="btn btn-danger" type="submit">Reset</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Akhir Booking Pemesanan -->
+
+    <!-- ++++ Seputar Informasi Paket ++++ -->
+    <section id="info " class="info bg-white ">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-sm-12 ">
+                    <div class="section-judul ">
+                        <h2>Mengapa Memesan Day-Travel ?</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center ">
+                <div class="card border-primary col-sm-8 m-2 ">
+                    <div class="card-body in-text text-info font-weight-bold text-center ">
+                        Harga Menarik Dan Bergaransi
+                        <p class="card-text p-text text-dark font-weight-normal text-justify mt-2 ">
+                            Harga kompetitif Menyediakan Berbagai Destinasi Wisata dan Lokasi Penginapan Menarik serta Berbagai Resto Berbintang dengan harga terbaik.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mt-2 ">
+                <div class="card border-primary col-sm-8 m-2 ">
+                    <div class="card-body in-text text-info font-weight-bold text-center ">
+                        Keamanan dan Kualitas
+                        <p class="card-text p-text text-dark font-weight-normal text-justify mt-2 ">
+                            Dengan Menggunakan Jasa Dari Agensi Traveler Kami Day-Travel, Anda dijamin mendapat Destinasi Wisata sesuai dengan Keinginan, Jika ada kendala pada pesanan Destinasi Wisata Anda, kami akan menggantinya dengan Destinasi Wisata yang sama baiknya. Atau uang
+                            Anda kembali.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-2 ">
+                <div class="card border-primary col-sm-8 m-2 ">
+                    <div class="card-body in-text text-info font-weight-bold text-center ">
+                        Kenapa Memilih Paket ?
+                        <p class="card-text p-text text-dark font-weight-normal text-justify mt-2 ">
+                            Dengan Harga Terjangkau dan tentunya lebih Murah, Paket Destinasi Wista Adalah Pilihan Terbaik.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ++++ Akhir Seputar Informasi Paket ++++ -->
+
+    <!-- ++++ Footer +++++-->
+    <footer id="footer" style="margin-top: 72px;">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h3 class="maintext2">Day Travel</h3>
+                        <p>
+                            Condongcatur, Depok <br> Sleman, Yogyakarta<br> Indonesia <br><br>
+                            <strong>Telepon :</strong> +6281 123 456 789<br>
+                            <strong>E-mail :</strong> dayinfo@gmail.com<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container d-md-flex py-4">
+            <div class="mr-md-auto text-center text-md-left">
+                <div class="copyright">
+                    &copy; Copyright<span> Day Travel.</span>
+                </div>
+                <div class="credits">
+                    <p class="maintext"> Designed by <i> <a href="#" style="color: white;"> DayTeam </a></i> </p>
+                </div>
+            </div>
+            <div class="sosial-media-link text-center text-md-right pt-3 pt-md-0">
+                <a href="https://www.instagram.com/destinasii_bali/" class="facebook"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.instagram.com/destinasii_bali/" class="instagram"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+        <!-- ++++ Akhir Footer +++++-->
+
+        <a href="# " class="back-to-top bg-success "><i class="fas fa-arrow-up "></i></a>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
+        
+        <script src="jease/jquery.easing.1.3.js "></script>
+
+        <script src="js/main.js "></script>
+        <script src="js/harga.js"></script>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/2fa4d370ad.js" crossorigin="anonymous"></script>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- My Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    <script href="script/myjquery.js" type="text/javascript"></script>
+
+    <title>Map - Day Travel Id</title>
+
+</head>
+
+
+
+<body>
+
+    <!--  ++++++ Header +++++++ -->
+    <header>
+        <!-- awal navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img src="img/png/logo.png" height="40" alt="daytravel"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Destinations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-item btn btn-primary tombol" href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- akhir navbar -->
+    </header>
+    <!-- +++++++ Akhir Dari HEADER ++++++ -->
+
+    <!-- ++ MAP +++-->
+
+    <div class="section-map bg-dark mt-2">
+        <h2 class="text-white"><br> CHOOSE YOUR JOURNEY</h2>
+    </div>
+
+    <div class="container mt-5 mb-5">
+
+        <div id="map"></div>
+
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+
+        <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css" />
+
+
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
+        <!-- Untuk Bagan Map -->
+        <script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
+
+        <script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+
+        <!-- Akhir Bagan Map -->
+
+    </div>
+
+
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiaWFtZGFtYXIzMCIsImEiOiJja2JnZjUwOGwxNHd1MnlzN2RsM3dpOTRmIn0.X9tdeFA_1pexn07pzXuGqw';
+        var mapboxClient = mapboxSdk({
+            accessToken: mapboxgl.accessToken
+        });
+        mapboxClient.geocoding
+            .forwardGeocode({
+                query: 'Bali, Indonesia',
+                autocomplete: false,
+                limit: 1
+            })
+            .send()
+            .then(function(response) {
+                if (
+                    response &&
+                    response.body &&
+                    response.body.features &&
+                    response.body.features.length
+                ) {
+                    var feature = response.body.features[0];
+
+                    var map = new mapboxgl.Map({
+                        container: 'map',
+                        style: 'mapbox://styles/mapbox/streets-v11',
+                        center: feature.center,
+                        zoom: 10
+                    });
+                    new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
+                }
+
+                /*Untuk Geo Coder nya/Search Menu */
+
+                map.addControl(
+                    new MapboxGeocoder({
+                        accessToken: mapboxgl.accessToken,
+                        mapboxgl: mapboxgl
+                    })
+                );
+
+                map.addControl(new mapboxgl.NavigationControl());
+
+            });
+    </script>
+
+
+    <!-- Destinasi tersedia -->
+    <div class="offers">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="section_title text-center">
+                        <h2>Top destinations in Indonesia</h2>
+                        <div>Let's See</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="items item_grid clearfix">
+
+                        <!-- Item -->
+                        <div class="item clearfix rating_5">
+                            <div class="item_image"><img src="img/top_1.jpg" alt=""></div>
+                            <div class="item_content">
+                                <div class="item_price">From $890</div>
+                                <div class="item_title">Paris, France</div>
+                                <ul>
+                                    <li>1 person</li>
+                                    <li>4 nights</li>
+                                    <li>3 star hotel</li>
+                                </ul>
+                                <div class="rating rating_5" data-rating="5">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="item_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla lectus nec diam auctor, ut fringilla diam sagittis. Quisque vel est id justo faucibus dapibus id a nibh. Aenean suscipit consequat lacus, sit amet
+                                    mollis nulla. Morbi sagittis orci id lacus convallis tempus eget sit amet metus.</div>
+                                <div class="item_more_link"><a href="#">Read More</a></div>
+                            </div>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="item clearfix rating_3">
+                            <div class="item_image"><img src="img/top_2.jpg" alt=""></div>
+                            <div class="item_content">
+                                <div class="item_price">From $290</div>
+                                <div class="item_title">Cinque Terre</div>
+                                <ul>
+                                    <li>1 person</li>
+                                    <li>4 nights</li>
+                                    <li>3 star hotel</li>
+                                </ul>
+                                <div class="rating rating_3" data-rating="3">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="item_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla lectus nec diam auctor, ut fringilla diam sagittis. Quisque vel est id justo faucibus dapibus id a nibh. Aenean suscipit consequat lacus, sit amet
+                                    mollis nulla. Morbi sagittis orci id lacus convallis tempus eget sit amet metus.</div>
+                                <div class="item_more_link"><a href="#">Read More</a></div>
+                            </div>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="item clearfix rating_4">
+                            <div class="item_image"><img src="img/top_3.jpg" alt=""></div>
+                            <div class="item_content">
+                                <div class="item_price">From $590</div>
+                                <div class="item_title">Italian Riviera</div>
+                                <ul>
+                                    <li>1 person</li>
+                                    <li>4 nights</li>
+                                    <li>3 star hotel</li>
+                                </ul>
+                                <div class="rating rating_4" data-rating="4">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="item_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla lectus nec diam auctor, ut fringilla diam sagittis. Quisque vel est id justo faucibus dapibus id a nibh. Aenean suscipit consequat lacus, sit amet
+                                    mollis nulla. Morbi sagittis orci id lacus convallis tempus eget sit amet metus.</div>
+                                <div class="item_more_link"><a href="#">Read More</a></div>
+                            </div>
+                        </div>
+
+                        <!-- Item -->
+                        <div class="item clearfix rating_5">
+                            <div class="item_image"><img src="img/top_4.jpg" alt=""></div>
+                            <div class="item_content">
+                                <div class="item_price">From $490</div>
+                                <div class="item_title">Santorini, Greece</div>
+                                <ul>
+                                    <li>1 person</li>
+                                    <li>4 nights</li>
+                                    <li>3 star hotel</li>
+                                </ul>
+                                <div class="rating rating_5" data-rating="5">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div class="item_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla lectus nec diam auctor, ut fringilla diam sagittis. Quisque vel est id justo faucibus dapibus id a nibh. Aenean suscipit consequat lacus, sit amet
+                                    mollis nulla. Morbi sagittis orci id lacus convallis tempus eget sit amet metus.</div>
+                                <div class="item_more_link"><a href="#">Read More</a></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Akhir Destinasi tersedia -->
+
+    <!-- ++++ Footer +++++-->
+    <footer id="footer">
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <h3 class="maintext2">Day Travel Id</h3>
+                        <p>
+                            CTXX-357 Caturtunggal <br> Sleman, Yogyakarta<br> Indonesia <br><br>
+                            <strong>Telepon :</strong> +0882-150-286-99<br>
+                            <strong>E-mail :</strong> DayTravel@gmail.com<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container d-md-flex py-4">
+
+            <div class="mr-md-auto text-center text-md-left">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>Day Travel Id</span></strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                    Designed by
+                    <l class="maintext">DayTeam</l>
+                </div>
+            </div>
+            <!-- ++++ Akhir Footer +++++-->
+            <!-- Jquery -->
+
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+
+
+</html>
